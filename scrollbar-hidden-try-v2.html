@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+.content {
+  /* These rules create an artificially confined space, so we get
+     a scrollbar that we can hide. They are not directly involved in
+     hiding the scrollbar. */
+
+  border: 1px dashed gray;
+  padding: .5em;
+
+  white-space: pre-wrap;
+  height: 5em;
+  overflow-y: scroll;
+}
+
+.content {
+  /* This is the magic bit for Firefox */
+  scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+  /* This is the magic bit for WebKit */
+  display: none;
+}
+  </style>
+</head>
+<body>
+
+<div class="content">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu
+urna et leo aliquet malesuada ut ac dolor. Fusce non arcu vel ligula
+fermentum sodales a quis sapien. Sed imperdiet justo sit amet venenatis
+egestas. Integer vitae tempor enim. In dapibus nisl sit amet purus congue
+tincidunt. Morbi tincidunt ut eros in rutrum. Sed quam erat, faucibus
+vel tempor et, elementum at tortor. Praesent ac libero at arcu eleifend
+mollis ut eget sapien. Duis placerat suscipit eros, eu tempor tellus
+facilisis a. Vivamus vulputate enim felis, a euismod diam elementum
+non. Duis efficitur ac elit non placerat. Integer porta viverra nunc,
+sed semper ipsum. Nam laoreet libero lacus.
+
+Sed sit amet tincidunt felis. Sed imperdiet, nunc ut porta elementum,
+eros mi egestas nibh, facilisis rutrum sapien dolor quis justo. Quisque
+nec magna erat. Phasellus vehicula porttitor nulla et dictum. Sed
+tincidunt scelerisque finibus. Maecenas consequat massa aliquam pretium
+volutpat. Duis elementum magna vel velit elementum, ut scelerisque
+odio faucibus.
+</div>
+
+
+</body>
+</html>
