@@ -1,0 +1,20 @@
+<html>
+<head>
+</head>
+<body>
+<div id="elmId_divListUrl"></div>
+</body>
+<script>
+const pagesRaw = `
+index.html
+scrollbar-hidden-try.html
+`;
+const pages = pagesRaw.split('\n').filter(it=>it && it.length);
+let sb = '';
+for (const page of pages) {
+  sb += `<div><a href="/${page}">${page}</a></div>\n`;
+}
+const divListUrl = document.querySelector('#elmId_divListUrl');
+divListUrl.innerHTML = sb;
+</script>
+</html>
