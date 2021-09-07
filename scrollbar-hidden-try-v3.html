@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+.side-menu-beautiful-scroll {
+  overflow-y: scroll;
+  border-right: none !important; /* Remove the right border of side-menu (replaced by this scroll-bar's left border)*/
+}
+.side-menu-beautiful-scroll::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;  /* Optional: just make scrollbar invisible */
+  border-left: 1px solid #EEE; /* Replace the right border of side-menu */
+}
+.side-menu-beautiful-scroll:hover::-webkit-scrollbar {
+  width: 10px;
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+.side-menu-beautiful-scroll:hover::-webkit-scrollbar-thumb {
+  border-left: 1px solid rgba(0, 0, 0, 0);
+  border-right: 1px solid rgba(0, 0, 0, 0);
+  border-top: 2px solid rgba(0, 0, 0, 0);
+  border-bottom: 2px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  background-color: #D8D8D8;
+  border-radius: 10px;
+}
+
+.side-menu-beautiful-ie-scroll {
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.items-container {
+  height: 200px;
+  width: 100px;
+}
+  </style>
+</head>
+<div><hr/></div>
+<div class="items-container side-menu-beautiful-scroll" tabindex="0"></div>
+<div><hr/></div>
+<div class="items-container side-menu-beautiful-scroll" tabindex="0"></div>
+<div><hr/></div>
+<script>
+  let sb = '';
+  for (let i = 0; i < 20; i++) {
+    if (sb.length) {
+      sb += '\n';
+    }
+    sb += `<div>Item ${i}</div>`
+  }
+  document.querySelectorAll('.items-container').forEach(itemContainer => {
+    itemContainer.innerHTML = sb;
+  });
+</script>
+</body>
+</html>
