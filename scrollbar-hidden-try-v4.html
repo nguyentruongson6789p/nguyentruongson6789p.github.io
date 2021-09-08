@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+.side-menu-beautiful-scroll {
+  overflow-y: scroll;
+  border-right: 3px solid red; /* Remove the right border of side-menu (replaced by this scroll-bar's left border)*/
+}
+.side-menu-beautiful-scroll:hover {
+  color: orangered;
+}
+
+.items-container {
+  height: 200px;
+  width: 100px;
+}
+
+.hover-magic > div {
+  text-decoration: underline;
+}
+.hover-magic::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 0;
+  height: 0;
+}
+  </style>
+</head>
+<div><hr/></div>
+<div id="items-container-a" class="items-container side-menu-beautiful-scroll" tabindex="0"></div>
+<div><hr/></div>
+<div id="items-container-b" class="items-container side-menu-beautiful-scroll" tabindex="0"></div>
+<div><hr/></div>
+<script>
+  let sb = '';
+  for (let i = 0; i < 20; i++) {
+    if (sb.length) {
+      sb += '\n';
+    }
+    sb += `<div>Item ${i}</div>`
+  }
+  document.querySelectorAll('.items-container').forEach(itemContainer => {
+    itemContainer.innerHTML = sb;
+  });
+
+  // Add hover handler:
+  const containerA = document.querySelector('#items-container-a');
+  const cssHoverMagic = 'hover-magic';
+  containerA.addEventListener('mouseenter', event => {
+    containerA.classList.add(cssHoverMagic);
+  });
+  containerA.addEventListener('mouseleave', event => {
+    containerA.classList.remove(cssHoverMagic);
+  });
+</script>
+</body>
+</html>
