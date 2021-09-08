@@ -9,7 +9,7 @@
   border-right: 3px solid red; /* Remove the right border of side-menu (replaced by this scroll-bar's left border)*/
 }
 .side-menu-beautiful-scroll:hover {
-  color: orangered;
+  text-decoration: underline;
 }
 
 .items-container {
@@ -17,14 +17,27 @@
   width: 100px;
 }
 
-.hover-magic > div {
-  text-decoration: underline;
+.no-hover-no-magic > div {
+  color: orangered;
 }
-.hover-magic::-webkit-scrollbar {
+.no-hover-no-magic::-webkit-scrollbar {
   -webkit-appearance: none;
   display: none;
   width: 0;
   height: 0;
+}
+
+.hover-magic > div {
+  color: green;
+}
+.hover-magic::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+.hover-magic::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
   </style>
 </head>
@@ -48,12 +61,23 @@
   // Add hover handler:
   const containerA = document.querySelector('#items-container-a');
   const cssHoverMagic = 'hover-magic';
+  const cssNoHoverNoMagic = 'no-hover-no-magic';
+  setStateContainer(containerA, false);
   containerA.addEventListener('mouseenter', event => {
-    containerA.classList.add(cssHoverMagic);
+    setStateContainer(containerA, true);
   });
   containerA.addEventListener('mouseleave', event => {
-    containerA.classList.remove(cssHoverMagic);
+    setStateContainer(containerA, false);
   });
+  function setStateContainer(container, isHover) {
+    if (isHover) {
+      container.classList.add(cssHoverMagic);
+      container.classList.remove(cssNoHoverNoMagic);
+    } else {
+      container.classList.add(cssNoHoverNoMagic);
+      container.classList.remove(cssHoverMagic);
+    }
+  }
 </script>
 </body>
 </html>
